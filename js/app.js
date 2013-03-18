@@ -1,5 +1,5 @@
 (function () {
-  var html_templ = '<tr><td><a href="{{url}}">{{ number }}</a></td><td>{{title}}</td><td>{{ #pull_request.html_url }}<a href="{{ pull_request.html_url }}">Pull Request</a>{{ /pull_request.html_url }}</td><td>{{ updated_at }}</td></tr>';
+  var html_templ = '<tr><td><a href="{{ html_url }}">{{ number }}</a></td><td>{{title}}</td><td>{{ #pull_request.html_url }}<a href="{{ pull_request.html_url }}">Pull Request</a>{{ /pull_request.html_url }}</td><td>{{ updated_at }}</td></tr>';
   var milestone = get_query_param()['milestone'] || null;
   var url_default = Mustache.render('https://api.github.com/repos/okfn/ckan/issues?assignee=none&sort=updated&{{ #ms }}milestone={{ ms}}&{{ /ms }}direction=asc', {'ms': milestone});
   var url_callb_tmpl = '{{ &url }}&callback=?';
